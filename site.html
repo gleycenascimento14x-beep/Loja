@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SANT'ANNA DELUXE — Moda & Alta Costura</title>
+  <meta name="description" content="SANT'ANNA DELUXE — Marca de alta costura, conforto e elegância atemporal. Coleções cápsula, peças em cashmere, linho e seda." />
+  <!-- Tipografia elegante: serif para marca + sans para UI -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --beige:#DCCFBF;
+      --sand:#F7F3EE;
+      --chocolate:#5B4636;
+      --navy:#0F1C2E;
+      --charcoal:#1B1B1B;
+      --accent:#BFA482;
+      --muted:#7b6b61;
+      --max-width:1180px;
+      --radius:12px;
+      --card-shadow: 0 10px 30px rgba(14,12,10,0.06);
+      --glass: rgba(255,255,255,0.6);
+      --gap:22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--charcoal);
+      background:linear-gradient(180deg,var(--sand),#efe9df);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      -webkit-font-feature-settings: "kern";
+      padding-bottom:48px;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block;height:auto}
+    .container{max-width:var(--max-width);margin:0 auto;padding:36px 20px}
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:18px 0;
+      position:sticky;
+      top:0;
+      background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.6));
+      backdrop-filter: blur(6px);
+      z-index:40;
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
+    .brand{
+      display:flex;align-items:center;gap:14px;
+    }
+    .brand .logo{
+      width:88px;height:88px;border-radius:10px;
+      background:linear-gradient(180deg,var(--chocolate),#6a4f3f);
+      display:flex;align-items:center;justify-content:center;color:var(--sand);
+      font-family:"Playfair Display", serif;font-size:26px;font-weight:700;letter-spacing:1px;
+      box-shadow:var(--card-shadow);
+    }
+    .brand h1{font-family:"Playfair Display", serif;font-size:18px;letter-spacing:2px;color:var(--chocolate);margin-bottom:2px}
+    .brand .tag{font-size:12px;color:var(--muted)}
+
+    nav ul{display:flex;gap:18px;list-style:none;align-items:center}
+    nav a{padding:8px 12px;border-radius:8px;font-weight:600;font-size:14px;color:var(--charcoal)}
+    nav a:hover{background:rgba(0,0,0,0.03);color:var(--navy)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .icon-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+    .badge{background:var(--accent);color:var(--sand);padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px;margin-left:8px}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:stretch;
+      margin:28px 0 44px;
+    }
+    .hero-left{
+      background:var(--beige);
+      border-radius:16px;padding:34px;box-shadow:var(--card-shadow);
+      display:flex;flex-direction:column;justify-content:center;gap:18px;
+    }
+    .hero-left h2{font-family:"Playfair Display", serif;font-size:40px;letter-spacing:1px;color:var(--chocolate);margin-bottom:6px}
+    .hero-left p{color:var(--muted);max-width:680px}
+    .hero-cta{display:flex;gap:12px;align-items:center}
+    .btn-primary{
+      display:inline-block;padding:12px 18px;border-radius:10px;background:var(--navy);
+      color:var(--sand);font-weight:700;letter-spacing:1px;font-size:14px;border:0;cursor:pointer;
+      box-shadow:0 8px 22px rgba(15,28,46,0.12);
+    }
+    .btn-ghost{padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);font-weight:700;background:transparent}
+
+    .hero-right{
+      border-radius:14px;overflow:hidden;height:100%;min-height:420px;
+      background:linear-gradient(180deg,#efe6db,#e8ded2);
+      display:flex;flex-direction:column;justify-content:stretch;
+    }
+    .hero-right img{height:100%;object-fit:cover}
+
+    .swatches{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .swatch{width:46px;height:46px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)}
+    .swatch.beige{background:var(--beige)}
+    .swatch.choc{background:var(--chocolate)}
+    .swatch.navy{background:var(--navy)}
+    .swatch.char{background:var(--charcoal)}
+
+    /* Sections */
+    .section{margin:36px 0}
+    .section h3{font-family:"Playfair Display", serif;font-size:20px;margin-bottom:14px;color:var(--chocolate)}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:white;border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);
+      transition:transform .28s ease, box-shadow .28s ease;border:1px solid rgba(0,0,0,0.03);
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(12,12,12,0.12)}
+    .card .media{height:320px;background:#eee;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .card .media img{width:100%;height:100%;object-fit:cover}
+    .card .info{padding:18px}
+    .product-title{font-weight:700;color:var(--charcoal);margin-bottom:6px;font-size:16px}
+    .price{color:var(--chocolate);font-weight:700}
+
+    /* Footer */
+    footer{margin-top:48px;padding:36px 0;border-top:1px solid rgba(0,0,0,0.04);color:#6b5d55}
+    .footer-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+    .footer-grid .col{min-width:180px}
+
+    /* Modal / Quick view */
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+      background:rgba(0,0,0,0.45);z-index:80;padding:20px;
+    }
+    .modal.open{display:flex}
+    .modal .panel{width:920px;max-width:98%;background:var(--sand);border-radius:12px;padding:18px;display:flex;gap:12px;flex-direction:column;}
+    .modal img{width:100%;max-height:400px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .close{background:transparent;border:0;font-size:20px;cursor:pointer;margin-left:auto;display:block;}
+    .add-cart-btn{
+      display:inline-block;padding:12px 18px;border-radius:8px;background:var(--accent);
+      color:var(--sand);font-weight:700;letter-spacing:1px;font-size:14px;border:0;cursor:pointer;margin-top:10px;
+    }
+
+    /* Cart / Checkout pages */
+    .page{
+      background:white;border-radius:14px;padding:22px;box-shadow:var(--card-shadow);margin-bottom:22px;
+    }
+    .cart-list{display:flex;flex-direction:column;gap:12px}
+    .cart-item{display:flex;gap:12px;align-items:center;border-radius:10px;padding:12px;border:1px solid rgba(0,0,0,0.03)}
+    .cart-item img{width:110px;height:110px;object-fit:cover;border-radius:8px}
+    .qty{display:flex;align-items:center;gap:8px}
+    .qty button{padding:6px 8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;cursor:pointer}
+
+    .summary{border-left:1px solid rgba(0,0,0,0.04);padding-left:18px;min-width:280px}
+
+    /* Responsive */
+    @media(max-width:1100px){
+      .hero{grid-template-columns:1fr; }
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .brand h1{display:none}
+      .hero-right{min-height:320px}
+    }
+    @media(max-width:720px){
+      .grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      header{padding:12px 0}
+      .hero-left h2{font-size:28px}
+      .hero-right{display:none}
+    }
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .small{font-size:13px;color:#6b5d55}
+    .text-right{text-align:right}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  </style>
+</head>
+<body>
+  <div class="container" id="app">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">SA</div>
+        <div>
+          <h1>SANT'ANNA DELUXE</h1>
+          <div class="tag">Elegância, origem & conforto atemporal</div>
+        </div>
+      </div>
+
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="#home" data-nav>Início</a></li>
+          <li><a href="#colecao" data-nav>Coleção</a></li>
+          <li><a href="#about" data-nav>Nossa Casa</a></li>
+          <li><a href="#contato" data-nav>Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions" role="toolbar" aria-label="Ações">
+        <button class="icon-btn" id="openSearch" title="Buscar">Buscar</button>
+        <a class="icon-btn" href="#favoritos" title="Favoritos">♡</a>
+        <button class="icon-btn" id="openCartBtn" title="Carrinho" aria-haspopup="dialog" aria-controls="cartPanel">
+          Carrinho <span id="cartCount" class="badge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Router content area -->
+    <main id="view" style="margin-top:22px"></main>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="col">
+          <strong>Sant'Anna Deluxe</strong>
+          <div style="margin-top:8px">Endereço (flagship): São Paulo — Av. Conceito, 123</div>
+        </div>
+        <div class="col">
+          <div><strong>Atendimento</strong></div>
+          <div style="margin-top:8px">contato@santannadeluxe.com</div>
+          <div style="margin-top:6px">+55 (11) 4000-0000</div>
+        </div>
+        <div class="col">
+          <div><strong>LOJA</strong></div>
+          <div style="margin-top:8px">Privado — atendimento por agendamento</div>
+        </div>
+      </div>
+      <div style="margin-top:18px;color:#6b5d55;font-size:13px">© Sant'Anna Deluxe — Todos os direitos reservados.</div>
+    </footer>
+  </div>
+
+  <!-- Templates: we'll inject HTML into #view depending on hash route -->
+  <template id="homeTpl">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left hero-card">
+        <div style="display:flex;align-items:center;gap:18px">
+          <div style="width:86px;height:86px;border-radius:10px;background:linear-gradient(180deg,var(--chocolate),#6a4f3f);display:flex;align-items:center;justify-content:center;color:var(--sand);font-family:'Playfair Display',serif;font-size:28px">SA</div>
+          <div>
+            <h2 id="hero-title">Sofisticação que toca. Conforto que permanece.</h2>
+            <div class="small">Peças atemporais feitas com materiais nobres: cashmere, linho e seda. Coleção cápsula com modelagem e acabamento artesanal.</div>
+          </div>
+        </div>
+
+        <p style="margin-top:18px;color:var(--muted)">Cada coleção é pensada para durar gerações — cortes precisos, tecidos selecionados e produção em pequenas séries.</p>
+
+        <div class="hero-cta">
+          <a class="btn-primary" href="#colecao">Ver Coleção</a>
+          <a class="btn-ghost" href="#about">Nossa Casa</a>
+        </div>
+
+        <div class="swatches" aria-hidden="true" style="margin-top:12px">
+          <div class="swatch beige" title="Bege"></div>
+          <div class="swatch choc" title="Marrom"></div>
+          <div class="swatch navy" title="Azul Marinho"></div>
+          <div class="swatch char" title="Preto"></div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <img src="coleçãosantanna.jpg" alt="Campanha Sant'Anna Deluxe — coleção cápsula">
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="colecao-title">
+      <h3 id="colecao-title">Coleção Cápsula — Destaques</h3>
+      <div id="productsGrid" class="grid" role="list"></div>
+    </section>
+
+    <section class="section" aria-labelledby="about-title">
+      <h3 id="about-title">Sobre Sant'Anna Deluxe</h3>
+      <div class="page">
+        <p style="color:var(--muted);max-width:880px;margin-bottom:12px">Surgimos de um desejo: criar peças que carregam história sem perder o conforto do presente. Produção limitada, modelagem alfaiataria e acabamento manual — um serviço pensado sob medida.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start">
+          <div style="flex:1;min-width:240px;background:linear-gradient(180deg,var(--beige),#efe6db);padding:12px;border-radius:12px;margin-bottom:8px">
+            <h4 style="color:var(--chocolate);margin-bottom:4px">Serviço Sob Medida</h4>
+            <p style="color:var(--muted);margin:0">Atendimento individualizado, provas presenciais e ajustes em atelier parceiro.</p>
+          </div>
+          <div style="flex:1;min-width:240px;background:linear-gradient(180deg,#f9f5ef,#efe6db);padding:12px;border-radius:12px;margin-bottom:8px">
+            <h4 style="color:var(--chocolate);margin-bottom:4px">Sustentabilidade</h4>
+            <p style="color:var(--muted);margin:0">Peças duradouras, uso consciente de matérias-primas e parcerias com oficinas locais.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <template id="productTpl">
+    <div class="page">
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:320px">
+          <img id="pd-image" src="" alt="">
+        </div>
+        <div style="flex:1;min-width:320px;display:flex;flex-direction:column;gap:12px">
+          <h2 id="pd-title" style="font-family:'Playfair Display',serif"></h2>
+          <div id="pd-price" style="font-weight:800;color:var(--chocolate);font-size:20px"></div>
+          <div id="pd-desc" class="muted"></div>
+
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+            <label for="sizeSelect" class="small muted">Tamanho</label>
+            <select id="sizeSelect" style="padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+              <option value="P">P</option>
+              <option value="M" selected>M</option>
+              <option value="G">G</option>
+              <option value="GG">GG</option>
+            </select>
+          </div>
+
+          <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+            <button id="addToCartBtn" class="add-cart-btn">Adicionar ao carrinho</button>
+            <button id="buyNow" class="btn-primary">Comprar agora</button>
+          </div>
+
+          <div style="margin-top:14px" class="small muted">
+            <strong>Composição:</strong> <span id="pd-compo"></span><br>
+            <strong>Entrega:</strong> Envio em 3–10 dias úteis (rastreamento incluso).
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="cartTpl">
+    <div class="page" id="cartPanel" role="dialog" aria-labelledby="cartTitle">
+      <h3 id="cartTitle">Seu Carrinho</h3>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:12px">
+        <div style="flex:1;min-width:320px">
+          <div id="cartList" class="cart-list"></div>
+        </div>
+
+        <aside class="summary">
+          <h4>Resumo do pedido</h4>
+          <div style="margin-top:12px">
+            <div style="display:flex;justify-content:space-between"><div>Itens</div><div id="sumItems">0</div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px"><div>Frete</div><div id="sumShip">R$ 0,00</div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px;font-weight:800;color:var(--chocolate)"><div>Total</div><div id="sumTotal">R$ 0,00</div></div>
+            <div style="margin-top:18px;display:flex;gap:12px">
+              <button id="goToCheckout" class="btn-primary">Finalizar compra</button>
+              <button id="continueShopping" class="btn-ghost">Continuar comprando</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </template>
+
+  <template id="checkoutTpl">
+    <div class="page">
+      <h3>Finalizar compra</h3>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:12px">
+        <form id="checkoutForm" style="flex:1;min-width:320px;display:flex;flex-direction:column;gap:12px">
+          <label class="small">Nome completo<input name="name" required placeholder="Nome completo" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></label>
+          <label class="small">E-mail<input name="email" required type="email" placeholder="seu@exemplo.com" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></label>
+
+          <label class="small">Endereço<input name="address" required placeholder="Rua, número, complemento" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></label>
+
+          <label class="small">Cidade / Estado<input name="city" required placeholder="Cidade - Estado" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></label>
+
+          <label class="small">CEP<input name="zip" required placeholder="00000-000" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></label>
+
+          <fieldset style="border:1px solid rgba(0,0,0,0.03);padding:12px;border-radius:8px">
+            <legend class="small">Pagamento (mock)</legend>
+            <label class="small">Nome no cartão<input name="ccname" required placeholder="Nome como no cartão" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></label>
+            <label class="small">Número do cartão<input name="ccnum" required placeholder="4111 1111 1111 1111" maxlength="19" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></label>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <input name="exp" required placeholder="MM/AA" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+              <input name="cvv" required placeholder="CVV" style="width:100px;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+            </div>
+          </fieldset>
+
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <button type="submit" class="btn-primary">Pagar agora</button>
+            <button type="button" id="backToCart" class="btn-ghost">Voltar ao carrinho</button>
+          </div>
+        </form>
+
+        <aside class="summary">
+          <h4>Resumo</h4>
+          <div style="margin-top:12px">
+            <div style="display:flex;justify-content:space-between"><div>Itens</div><div id="checkoutItems">0</div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px"><div>Frete</div><div id="checkoutShip">R$ 0,00</div></div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px;font-weight:800;color:var(--chocolate)"><div>Total</div><div id="checkoutTotal">R$ 0,00</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </template>
+
+  <!-- Sample product data (you can replace or load from API) -->
+  <script>
+    const PRODUCTS = [
+      {
+        id: "blazer-001",
+        title: "Blazer Alfaiataria — Seda & Lã",
+        price: 3450.00,
+        image: "blazer.jpg",
+        composition: "Seda 60% / Lã 40%",
+        description: "Blazer de corte impecável, forro artesanal e acabamento em pesponto manual. Lavagem a seco.",
+        sku: "SA-BZ-001"
+      },
+      {
+        id: "cashmere-001",
+        title: "Suéter Cashmere",
+        price: 1850.00,
+        image: "casaco.jpg",
+        composition: "100% Cashmere",
+        description: "Suéter de cashmere penteado — toque extremamente macio, renda ao caimento.",
+        sku: "SA-CS-001"
+      },
+      {
+        id: "vestido-001",
+        title: "Vestido Fluido — Seda",
+        price: 2200.00,
+        image: "imagevestido.jpg",
+        composition: "100% Seda",
+        description: "Vestido fluido em seda pura, corte evasê e acabamento com bainha invisível.",
+        sku: "SA-VT-001"
+      }
+    ];
+  </script>
+
+  <!-- App logic: routing, cart, rendering -->
+  <script>
+    /*********************
+     * Utilities
+     *********************/
+    function formatCurrency(value){
+      return value.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+    }
+
+    function qs(sel, ctx=document){ return ctx.querySelector(sel) }
+    function qsa(sel, ctx=document){ return [...ctx.querySelectorAll(sel)] }
+
+    /*********************
+     * Cart (localStorage)
+     *********************/
+    const CART_KEY = 'santanna_cart_v1';
+    function loadCart(){
+      try {
+        const raw = localStorage.getItem(CART_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch(e){ return []; }
+    }
+    function saveCart(cart){
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      renderCartCount();
+    }
+    function addToCart(productId, qty=1, meta={}){
+      const cart = loadCart();
+      const idx = cart.findIndex(i => i.id===productId && i.size===meta.size);
+      if(idx>-1) cart[idx].qty += qty;
+      else {
+        const p = PRODUCTS.find(x=>x.id===productId);
+        cart.push({id:productId, qty, size: meta.size||'M', title: p.title, price: p.price, image: p.image});
+      }
+      saveCart(cart);
+    }
+    function updateQty(productId, size, qty){
+      let cart = loadCart();
+      cart = cart.map(i => {
+        if(i.id===productId && i.size===size) i.qty = qty;
+        return i;
+      }).filter(i => i.qty>0);
+      saveCart(cart);
+    }
+    function removeFromCart(productId, size){
+      let cart = loadCart();
+      cart = cart.filter(i => !(i.id===productId && i.size===size));
+      saveCart(cart);
+    }
+    function clearCart(){
+      localStorage.removeItem(CART_KEY);
+      renderCartCount();
+    }
+    function cartTotals(){
+      const cart = loadCart();
+      const subtotal = cart.reduce((s,i)=>s + i.price * i.qty,0);
+      // Mock shipping rule
+      const ship = subtotal>3000 || subtotal===0 ? 0 : 90;
+      const total = subtotal + ship;
+      return {items: cart.length, subtotal, ship, total, cart};
+    }
+
+    function renderCartCount(){
+      const el = qs('#cartCount');
+      const cart = loadCart();
+      const count = cart.reduce((s,i)=>s + i.qty,0);
+      el.textContent = count;
+    }
+
+    /*********************
+     * Routing / Rendering
+     *********************/
+    const view = qs('#view');
+
+    function renderHome(){
+      const tpl = qs('#homeTpl').content.cloneNode(true);
+      view.innerHTML = '';
+      view.appendChild(tpl);
+      // Render products grid
+      const grid = qs('#productsGrid');
+      PRODUCTS.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.setAttribute('role','listitem');
+        card.innerHTML = `
+          <div class="media"><img src="${p.image}" alt="${p.title}"></div>
+          <div class="info">
+            <div class="product-title">${p.title}</div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="price">${formatCurrency(p.price)}</div>
+              <div style="display:flex;gap:8px">
+                <button class="icon-btn" data-link="#product/${p.id}">Detalhes</button>
+                <button class="icon-btn" data-add="${p.id}">Adicionar</button>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // attach add handlers
+      qsa('[data-add]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const id = btn.getAttribute('data-add');
+          addToCart(id, 1, {size:'M'});
+          showToast('Adicionado ao carrinho');
+        });
+      });
+
+      qsa('[data-link]').forEach(b => b.addEventListener('click', ()=> location.hash = b.getAttribute('data-link')));
+    }
+
+    function renderProduct(productId){
+      const product = PRODUCTS.find(p => p.id===productId);
+      if(!product){ view.innerHTML = '<div class="page"><p>Produto não encontrado.</p></div>'; return; }
+      const tpl = qs('#productTpl').content.cloneNode(true);
+      view.innerHTML = '';
+      view.appendChild(tpl);
+      qs('#pd-image').src = product.image;
+      qs('#pd-image').alt = product.title;
+      qs('#pd-title').textContent = product.title;
+      qs('#pd-price').textContent = formatCurrency(product.price);
+      qs('#pd-desc').textContent = product.description;
+      qs('#pd-compo').textContent = product.composition;
+
+      const addBtn = qs('#addToCartBtn');
+      addBtn.addEventListener('click', ()=> {
+        const size = qs('#sizeSelect').value;
+        addToCart(product.id, 1, {size});
+        renderCartCount();
+        showToast('Adicionado ao carrinho');
+      });
+      qs('#buyNow').addEventListener('click', ()=> {
+        const size = qs('#sizeSelect').value;
+        addToCart(product.id, 1, {size});
+        location.hash = '#cart';
+      });
+    }
+
+    function renderCart(){
+      const tpl = qs('#cartTpl').content.cloneNode(true);
+      view.innerHTML = '';
+      view.appendChild(tpl);
+
+      const {cart} = cartTotals();
+      const list = qs('#cartList');
+      if(cart.length===0){
+        list.innerHTML = '<div class="small muted">Seu carrinho está vazio.</div>';
+      } else {
+        cart.forEach(item => {
+          const itemEl = document.createElement('div');
+          itemEl.className = 'cart-item';
+          itemEl.innerHTML = `
+            <img src="${item.image}" alt="${item.title}">
+            <div style="flex:1">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div>
+                  <div style="font-weight:700">${item.title}</div>
+                  <div class="small muted">Tamanho: ${item.size}</div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-weight:800;color:var(--chocolate)">${formatCurrency(item.price)}</div>
+                </div>
+              </div>
+              <div style="margin-top:8px;display:flex;align-items:center;justify-content:space-between">
+                <div class="qty">
+                  <button data-decrease="${item.id}" data-size="${item.size}">−</button>
+                  <div>${item.qty}</div>
+                  <button data-increase="${item.id}" data-size="${item.size}">+</button>
+                </div>
+                <div>
+                  <button class="icon-btn" data-remove="${item.id}" data-size="${item.size}">Remover</button>
+                </div>
+              </div>
+            </div>
+          `;
+          list.appendChild(itemEl);
+        });
+      }
+
+      // attach handlers
+      qsa('[data-increase]').forEach(b => {
+        b.addEventListener('click', () => {
+          const id = b.getAttribute('data-increase'), size=b.getAttribute('data-size');
+          const cart = loadCart();
+          const it = cart.find(i => i.id===id && i.size===size);
+          if(it) updateQty(id,size,it.qty+1);
+          renderCart();
+        });
+      });
+      qsa('[data-decrease]').forEach(b => {
+        b.addEventListener('click', () => {
+          const id = b.getAttribute('data-decrease'), size=b.getAttribute('data-size');
+          const cart = loadCart();
+          const it = cart.find(i => i.id===id && i.size===size);
+          if(it) {
+            const newQty = it.qty - 1;
+            if(newQty<=0) removeFromCart(id,size); else updateQty(id,size,newQty);
+          }
+          renderCart();
+        });
+      });
+      qsa('[data-remove]').forEach(b => {
+        b.addEventListener('click', () => {
+          const id = b.getAttribute('data-remove'), size=b.getAttribute('data-size');
+          removeFromCart(id,size);
+          renderCart();
+        });
+      });
+
+      // summary
+      const totals = cartTotals();
+      qs('#sumItems').textContent = `${totals.cart.reduce((s,i)=>s+i.qty,0)} itens`;
+      qs('#sumShip').textContent = totals.ship===0 ? 'Grátis' : formatCurrency(totals.ship);
+      qs('#sumTotal').textContent = formatCurrency(totals.total);
+
+      qs('#goToCheckout').addEventListener('click', ()=> location.hash = '#checkout');
+      qs('#continueShopping').addEventListener('click', ()=> location.hash = '#home');
+    }
+
+    function renderCheckout(){
+      const tpl = qs('#checkoutTpl').content.cloneNode(true);
+      view.innerHTML = '';
+      view.appendChild(tpl);
+
+      const totals = cartTotals();
+      qs('#checkoutItems').textContent = `${totals.cart.reduce((s,i)=>s+i.qty,0)} itens`;
+      qs('#checkoutShip').textContent = totals.ship===0 ? 'Grátis' : formatCurrency(totals.ship);
+      qs('#checkoutTotal').textContent = formatCurrency(totals.total);
+
+      qs('#backToCart').addEventListener('click', ()=> location.hash='#cart');
+
+      qs('#checkoutForm').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        // Very simple mock validation
+        const form = e.target;
+        const data = Object.fromEntries(new FormData(form).entries());
+        // pretend to process payment
+        showToast('Processando pagamento...', 1200);
+        setTimeout(()=> {
+          showToast('Pagamento aprovado — obrigado pela compra!');
+          clearCart();
+          location.hash = '#home';
+        }, 1500);
+      });
+    }
+
+    // Simple toast
+    function showToast(msg, duration=900){
+      const t = document.createElement('div');
+      t.style.position='fixed';
+      t.style.right='18px';
+      t.style.bottom='18px';
+      t.style.background='var(--charcoal)';
+      t.style.color='white';
+      t.style.padding='12px 16px';
+      t.style.borderRadius='10px';
+      t.style.boxShadow='0 8px 22px rgba(0,0,0,0.2)';
+      t.style.zIndex=9999;
+      t.style.fontWeight=700;
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(()=> t.style.opacity='0.9',10);
+      setTimeout(()=> t.remove(), duration);
+    }
+
+    /*********************
+     * Router
+     *********************/
+    function router(){
+      const hash = location.hash.replace(/^#?/,'') || 'home';
+      // examples:
+      // product/{id}
+      if(hash.startsWith('product/')){
+        const id = hash.split('/')[1];
+        renderProduct(id);
+      } else if(hash==='home'){
+        renderHome();
+      } else if(hash==='colecao'){
+        renderHome();
+        window.scrollTo({top:500,behavior:'smooth'});
+      } else if(hash==='about'){
+        renderHome();
+        // scroll to about
+        setTimeout(()=> {
+          const el = qs('#about-title');
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        },200);
+      } else if(hash==='contato'){
+        renderContact();
+      } else if(hash==='cart'){
+        renderCart();
+      } else if(hash==='checkout'){
+        renderCheckout();
+      } else {
+        renderHome();
+      }
+    }
+
+    /*********************
+     * Contact / Newsletter
+     *********************/
+    function renderContact(){
+      view.innerHTML = `
+        <section class="section" aria-labelledby="contato-title">
+          <h3 id="contato-title">Contato & Atendimento</h3>
+          <div class="page">
+            <p class="muted">Agende atendimento personalizado, peça catálogos e informações sobre encomendas.</p>
+            <form id="contactForm" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+              <input name="nome" placeholder="Seu nome" style="flex:1;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)" required>
+              <input name="email" placeholder="Seu e-mail" style="flex:1;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)" required type="email">
+              <input name="mensagem" placeholder="Mensagem" style="flex-basis:100%;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);min-height:120px">
+              <button class="btn-primary" type="submit">Enviar</button>
+            </form>
+          </div>
+        </section>
+      `;
+      qs('#contactForm').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        showToast('Mensagem enviada — responderemos em breve!');
+        e.target.reset();
+      });
+    }
+
+    /*********************
+     * Init
+     *********************/
+    window.addEventListener('hashchange', router);
+    window.addEventListener('load', ()=> {
+      renderCartCount();
+      router();
+      // nav link behaviors
+      qsa('[data-nav]').forEach(a => a.addEventListener('click', (e)=>{
+        // allow the router to handle
+      }));
+      // header cart open
+      qs('#openCartBtn').addEventListener('click', ()=> location.hash = '#cart');
+      // search open (simple)
+      qs('#openSearch').addEventListener('click', ()=> {
+        const q = prompt('Buscar coleções e peças (ex: "Blazer")');
+        if(q) {
+          // naive search: go to home and highlight matches
+          location.hash = '#home';
+          setTimeout(()=> {
+            const matches = PRODUCTS.filter(p => (p.title + p.description).toLowerCase().includes(q.toLowerCase()));
+            if(matches.length) location.hash = '#product/' + matches[0].id;
+            else showToast('Nenhum resultado encontrado');
+          },400);
+        }
+      });
+
+      // deep links from product cards
+      document.body.addEventListener('click', (e)=>{
+        const btn = e.target.closest('[data-link]');
+        if(btn) {
+          const link = btn.getAttribute('data-link');
+          location.hash = link.replace(/^#/,'');
+        }
+      });
+    });
+
+    // Ensure initial state if images missing: fallback
+    window.addEventListener('error', (e)=>{
+      if(e.target && e.target.tagName==='IMG') e.target.src = 'placeholder.jpg';
+    }, true);
+  </script>
+</body>
+</html>

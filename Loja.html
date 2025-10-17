@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SANT'ANNA DELUXE — Moda & Alta Costura</title>
+  <meta name="description" content="SANT'ANNA DELUXE — Marca de alta costura, conforto e elegância atemporal. Coleções cápsula, peças em cashmere, linho e seda." />
+  <style>
+    :root{
+      --beige:#D9CBB2;
+      --sand:#F5F0E6;
+      --chocolate:#5B4636;
+      --navy:#0F1C2E;
+      --charcoal:#1C1C1C;
+      --accent:#BFA482;
+      --max-width:1200px;
+      --radius:8px;
+      --card-shadow: 0 6px 20px rgba(12,12,12,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Georgia", "Times New Roman", Times, serif;
+      color:var(--charcoal);
+      background:linear-gradient(180deg,var(--sand),#efe9df);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:36px 20px}
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:18px 0;
+    }
+    .brand{
+      display:flex;align-items:center;gap:16px;
+    }
+    .brand .logo{
+      width:92px;height:92px;border-radius:10px;
+      background:linear-gradient(180deg,var(--chocolate),#6a4f3f);
+      display:flex;align-items:center;justify-content:center;color:var(--sand);
+      font-size:28px;font-weight:700;letter-spacing:1px;
+      box-shadow:var(--card-shadow);
+    }
+    .brand h1{font-size:20px;letter-spacing:2px;color:var(--chocolate)}
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{padding:8px 12px;border-radius:6px;font-weight:600;font-size:14px}
+    nav a:hover{background:rgba(0,0,0,0.03)}
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      align-items:stretch;
+      margin:28px 0 44px;
+    }
+    .hero-card{
+      background:var(--beige);
+      border-radius:12px;
+      padding:28px;
+      box-shadow:var(--card-shadow);
+      display:flex;flex-direction:column;justify-content:space-between;
+      min-height:420px;
+    }
+    .hero .visual{
+      border-radius:10px;overflow:hidden;height:100%;
+    }
+    .hero .visual img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero .copy h2{font-size:34px;letter-spacing:2px;color:var(--chocolate);margin-bottom:12px}
+    .hero .copy p{color:#5a4b43;margin-bottom:18px}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:8px;background:var(--navy);
+      color:var(--sand);font-weight:700;letter-spacing:1px;font-size:14px;
+      border:0;cursor:pointer;
+    }
+
+    .swatches{display:flex;gap:12px;align-items:center;margin-top:18px}
+    .swatch{width:46px;height:46px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)}
+    .swatch.beige{background:var(--beige)}
+    .swatch.choc{background:var(--chocolate)}
+    .swatch.navy{background:var(--navy)}
+    .swatch.char{background:var(--charcoal)}
+
+    .section{margin:36px 0}
+    .section h3{font-size:20px;margin-bottom:14px;color:var(--chocolate)}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:white;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow);
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(12,12,12,0.12)}
+    .card .media{height:320px;background:#eee;display:flex;align-items:center;justify-content:center}
+    .card .info{padding:14px 16px}
+    .product-title{font-weight:700;color:var(--charcoal);margin-bottom:6px}
+    .price{color:var(--chocolate);font-weight:700}
+
+    footer{margin-top:48px;padding:36px 0;border-top:1px solid rgba(0,0,0,0.04);color:#6b5d55}
+    .footer-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+    .footer-grid .col{min-width:180px}
+
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr; }
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .brand h1{display:none}
+    }
+    @media(max-width:620px){
+      .grid{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+      background:rgba(0,0,0,0.45);z-index:80;padding:20px;
+    }
+    .modal.open{display:flex}
+    .modal .panel{width:920px;max-width:98%;background:var(--sand);border-radius:12px;padding:18px;display:flex;gap:12px;flex-direction:column;}
+    .modal img{width:100%;max-height:400px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .modal .meta{padding:8px 0}
+    .close{background:transparent;border:0;font-size:20px;cursor:pointer;margin-left:auto;display:block;}
+    .add-cart-btn{
+      display:inline-block;padding:12px 18px;border-radius:8px;background:var(--accent);
+      color:var(--sand);font-weight:700;letter-spacing:1px;font-size:14px;
+      border:0;cursor:pointer;margin-top:10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">SA</div>
+        <div>
+          <h1>SANT'ANNA DELUXE</h1>
+          <div style="font-size:12px;color:#6a5b51">Elegância, origem & conforto atemporal</div>
+        </div>
+      </div>
+
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="#colecao">Coleção</a></li>
+          <li><a href="#about">Nossa Casa</a></li>
+          <li><a href="#loja">Loja</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <div class="visual">
+          <img src="coleçãosantanna.jpg" alt="Coleção Sant'Anna — imagem de campanha" />
+        </div>
+        <div class="copy" style="margin-top:16px">
+          <h2 id="hero-title">Sofisticação que toca. Conforto que permanece.</h2>
+          <p>Peças atemporais feitas com materiais nobres: cashmere, linho italiano e seda pura. Coleção cápsula com modelagem alfaiataria e acabamento artesanal.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+            <a class="btn" href="#colecao">Ver Coleção</a>
+            <a style="padding:10px 14px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);font-weight:700" href="#about">Sobre a Marca</a>
+          </div>
+
+          <div class="swatches" aria-hidden="true">
+            <div class="swatch beige" title="Bege"></div>
+            <div class="swatch choc" title="Marrom"></div>
+            <div class="swatch navy" title="Azul Marinho"></div>
+            <div class="swatch char" title="Preto"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection -->
+    <section id="colecao" class="section" aria-labelledby="colecao-title">
+      <h3 id="colecao-title">Coleção Cápsula — Destaques</h3>
+      <div class="grid" role="list">
+        <!-- Product 1 -->
+        <article class="card" role="listitem" aria-label="Blazer Alfaiataria">
+          <div class="media" style="background:linear-gradient(180deg,#efe6db,#e8ded2);">
+            <img src="blazer.jpg" alt="Blazer Alfaiataria — Sant'Anna" />
+          </div>
+          <div class="info">
+            <div class="product-title">Blazer Alfaiataria — Seda & Lã</div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="price">R$ 3.450</div>
+              <button class="btn" onclick="openQuickView('Blazer Alfaiataria','R$ 3.450','blazer.jpg')">Ver</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="card" role="listitem" aria-label="Suéter Cashmere">
+          <div class="media" style="background:linear-gradient(180deg,#efe6db,#e8ded2);">
+            <img src="casaco.jpg" alt="Suéter Cashmere — Sant'Anna" />
+          </div>
+          <div class="info">
+            <div class="product-title">Suéter Cashmere</div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="price">R$ 1.850</div>
+              <button class="btn" onclick="openQuickView('Suéter Cashmere','R$ 1.850','casaco.jpg')">Ver</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="card" role="listitem" aria-label="Vestido Fluido">
+          <div class="media" style="background:linear-gradient(180deg,#efe6db,#e8ded2);">
+            <img src="imagevestido.jpg" alt="Vestido Fluido — Sant'Anna" />
+          </div>
+          <div class="info">
+            <div class="product-title">Vestido Fluido — Seda</div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div class="price">R$ 2.200</div>
+              <button class="btn" onclick="openQuickView('Vestido Fluido','R$ 2.200','imagevestido.jpg')">Ver</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About / Story moved to end -->
+    <section id="about" class="section" aria-labelledby="about-title" style="margin-top:20px">
+      <h3 id="about-title">Sobre Sant'Anna Deluxe</h3>
+      <p style="max-width:880px;color:#5b4e45;margin-bottom:12px">Surgimos de um desejo: criar peças que carregam história sem perder o conforto do presente. Nossa produção une alfaiataria europeia à matéria-prima selecionada. Trabalhamos com pequenas séries e atendimento por encomenda para clientes que buscam exclusividade.</p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start">
+        <div style="flex:1;min-width:240px;background:linear-gradient(180deg,var(--beige),#efe6db);padding:12px;border-radius:12px;margin-bottom:8px">
+          <h4 style="color:var(--chocolate);margin-bottom:4px">Serviço Sob Medida</h4>
+          <p style="color:#5b4e45;margin:0">Atendimento individualizado, provas presenciais e ajustes em atelier parceiro.</p>
+        </div>
+        <div style="flex:1;min-width:240px;background:linear-gradient(180deg,#f9f5ef,#efe6db);padding:12px;border-radius:12px;margin-bottom:8px">
+          <h4 style="color:var(--chocolate);margin-bottom:4px">Sustentabilidade</h4>
+          <p style="color:#5b4e45;margin:0">Peças duradouras, uso consciente de matérias-primas e parcerias com oficinas locais.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:8px">
+        <a class="btn" href="#contato">Agende uma consultoria</a>
+      </div>
+
+      <div style="margin-top:8px">
+        <div>
+        <div style="width:100%;height:130px;border-radius:8px;background:linear-gradient(180deg,var(--chocolate),#6a4f3f);display:flex;align-items:center;justify-content:center;color:var(--sand);font-size:36px">SA</div>
+      </div>
+    </section>
+
+<!-- Contact / Newsletter -->
+    <section id="contato" class="section" aria-labelledby="contato-title">
+      <h3 id="contato-title">Contato & Atendimento</h3>
+      <p style="color:#5b4e45;max-width:760px">Agende atendimento personalizado, peça catálogos e informações sobre encomendas.</p>
+
+      <form style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;max-width:760px" onsubmit="event.preventDefault();subscribe()">
+        <input name="nome" placeholder="Seu nome" style="flex:1;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)" required>
+        <input name="email" placeholder="Seu e-mail" style="flex:1;padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)" required type="email">
+        <button class="btn" type="submit">Assinar newsletter</button>
+      </form>
+    </section>
+   <footer>
+      <div class="footer-grid">
+        <div class="col">
+          <strong>Sant'Anna Deluxe</strong>
+          <div style="margin-top:8px">Endereço (flagship): São Paulo — Av. Conceito, 123</div>
+        </div>
+        <div class="col">
+          <div><strong>Atendimento</strong></div>
+          <div style="margin-top:8px">contato@santannadeluxe.com</div>
+          <div style="margin-top:6px">+55 (11) 4000-0000</div>
+        </div>
+        <div class="col">
+          <div><strong>LOJA</strong></div>
+          <div style="margin-top:8px">Privado — atendimento por agendamento</div>
+        </div>
+      </div>
+      <div style="margin-top:18px;color:#6b5d55;font-size:13px">© Sant'Anna Deluxe — Todos os direitos reservados.</div>
+    </footer>
+  </div>
+
+  <!-- Quick view modal -->
+  <div id="quickview" class="modal" role="dialog" aria-hidden="true" aria-labelledby="qv-title">
+    <div class="panel">
+      <button class="close" onclick="closeQuickView()" aria-label="Fechar">✕</button>
+      <img id="qv-img" src="" alt="">
+      <div class="meta">
+        <h3 id="qv-title" style="margin-bottom:8px"></h3>
+        <div id="qv-price" style="font-weight:700;color:var(--chocolate);margin-bottom:14px"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openQuickView(title, price, img){
+      document.getElementById('qv-title').textContent = title;
+      document.getElementById('qv-price').textContent = price;
+      document.getElementById('qv-img').src = img;
+      document.getElementById('quickview').classList.add('open');
+    }
+    function closeQuickView(){
+      document.getElementById('quickview').classList.remove('open');
+    }
+    function subscribe(){
+      alert('Obrigado por assinar nossa newsletter!');
+    }
+  </script>
+</body>
+</html>
